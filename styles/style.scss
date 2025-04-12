@@ -1,0 +1,323 @@
+// Custom variables
+$primary: #4a7a5a;        // Forest green
+$secondary: #2c463a;      // Darker green
+$success: #6c9c82;        // Light green
+$info: #9fc0af;           // Pale green
+$dark: #1a2a22;           // Very dark green
+$light: #f5f8f6;          // Off-white
+$body-bg: #ffffff;
+$body-color: #333333;
+
+// Typography
+$font-family-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$headings-font-weight: 700;
+
+// Roundness
+$border-radius: 0.5rem;
+$border-radius-lg: 0.8rem;
+$card-border-radius: 0.8rem;
+
+// Import Bootstrap
+@import "../bootstrap/scss/bootstrap.scss";
+
+// Custom styling
+
+// Global styles
+body {
+  font-family: $font-family-sans-serif;
+}
+
+.section-title {
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: $primary;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: $primary;
+  }
+}
+
+// Navbar
+.navbar-dark {
+  background-color: rgba($dark, 0.9) !important;
+  backdrop-filter: blur(10px);
+  
+  .navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+
+// Hero section
+.hero-section {
+  background: linear-gradient(135deg, lighten($primary, 40%) 0%, $light 100%);
+  padding: 6rem 0;
+  
+  h1 {
+    color: $dark;
+    letter-spacing: 2px;
+  }
+  
+  .contact-info {
+    p {
+      margin-bottom: 0.5rem;
+      
+      i {
+        color: $primary;
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+      }
+      
+      a {
+        color: $body-color;
+        text-decoration: none;
+        border-bottom: 1px dashed $primary;
+        transition: color 0.3s;
+        
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+  
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    
+    .profile-image {
+      border: 5px solid white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Cards styling
+.card {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .card-title {
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+// Custom button styles
+.btn-primary {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+.custom-btn {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// Skills styling
+.skill-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skill-tag {
+  background-color: $light;
+  color: $primary;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid rgba($primary, 0.2);
+  transition: all 0.3s;
+  
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+// Language proficiency dots
+.language-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.language-item {
+  margin-bottom: 15px;
+}
+
+.language-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.language-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba($primary, 0.2);
+  
+  &.filled {
+    background-color: $primary;
+  }
+  
+  &.half-filled {
+    background: linear-gradient(90deg, $primary 50%, rgba($primary, 0.2) 50%);
+  }
+  
+  &.empty {
+    background-color: rgba($primary, 0.2);
+  }
+}
+
+// Chart container
+.pie-chart-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+// Contact form
+.contact-form {
+  .form-control {
+    padding: 0.75rem;
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: $border-radius;
+    
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
+    }
+  }
+  
+  label {
+    font-weight: 500;
+    color: $dark;
+  }
+}
+
+// Footer
+.footer {
+  .social-links {
+    a {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+// Project click interaction
+.project-card {
+  cursor: pointer;
+}
+
+// Modal customization
+.modal-content {
+  border-radius: $border-radius-lg;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  
+  .modal-header {
+    background-color: $primary;
+    color: white;
+    border-bottom: none;
+    
+    .btn-close {
+      filter: brightness(0) invert(1);
+    }
+  }
+  
+  .modal-body {
+    padding: 2rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+// Fix modal scroll issue
+.modal {
+  &.fade {
+    .modal-dialog {
+      transform: translate(0, 0) !important;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    
+    .profile-image-container {
+      margin-top: 3rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .modal-dialog {
+    margin: 0.5rem;
+    max-height: 90vh;
+  }
+}
